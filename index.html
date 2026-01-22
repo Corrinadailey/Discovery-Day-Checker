@@ -1,80 +1,65 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Code Unlock</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Particles Page</title>
   <style>
-    body {
+    /* Full screen canvas */
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #000; /* black background */
+    }
+    #particles-js {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+    }
+    .count-particles {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      color: white;
       font-family: Arial, sans-serif;
-      background: #111;
-      color: #fff;
-      text-align: center;
-      padding-top: 100px;
-    }
-    input {
-      font-size: 20px;
-      padding: 10px;
-      text-transform: uppercase;
-    }
-    button {
-      font-size: 20px;
-      padding: 10px 20px;
-      margin-left: 10px;
-      cursor: pointer;
-    }
-    #result {
-      margin-top: 20px;
-      font-size: 24px;
+      font-size: 14px;
     }
   </style>
 </head>
 <body>
+  <!-- particles.js container -->
+  <div id="particles-js"></div>
 
-  <h1>Enter the Code</h1>
+  <!-- stats - count particles -->
+  <div class="count-particles">
+    <span class="js-count-particles">--</span> particles
+  </div>
 
-  <input type="text" id="userInput" placeholder="Type code here">
-  <button onclick="checkCode()">Unlock</button>
-
-  <p id="result"></p>
-
+  <!-- scripts -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="https://threejs.org/examples/js/libs/stats.min.js"></script>
   <script>
-    const validCodes = [
-      "AKTJHRSMBE",
-      "AHBRTKJSME",
-      "ASMHKBJTRE",
-      "ATRSHMBKJE",
-      "AJKBMHRTSE",
-      "ABHTJSKMRE",
-      "ARSKTJMHBE",
-      "AMJBRTHSKE",
-      "AHKMSTJRE",
-      "ATBHRKSMJE",
-      "ASRJKHMBTE",
-      "ABMTHSJRKE",
-      "AKHBMJTRSE",
-      "AJSRTBKHME",
-      "AMTKSRHJBE",
-      "RBHJTMKSE",
-      "ASJMHKRBTE",
-      "AHTSBMJKRE",
-      "AKBRMHSTJE",
-      "ATHJKSRMBE",
-      "ABRMTJHSKE"
-    ];
-
-    function checkCode() {
-      const input = document.getElementById("userInput").value.toUpperCase().trim();
-      const result = document.getElementById("result");
-
-      if (validCodes.includes(input)) {
-        result.textContent = "🎉 Congrats! Code Accepted!";
-        result.style.color = "#00ff99";
-      } else {
-        result.textContent = "❌ Try again!";
-        result.style.color = "#ff5555";
-      }
-    }
+    /* Example particles.js config */
+    particlesJS("particles-js", {
+      "particles": {
+        "number": { "value": 100, "density": { "enable": true, "value_area": 800 } },
+        "color": { "value": "#ffffff" },
+        "shape": { "type": "circle" },
+        "opacity": { "value": 0.5 },
+        "size": { "value": 3 },
+        "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1 },
+        "move": { "enable": true, "speed": 6, "direction": "none", "random": false, "straight": false, "out_mode": "out" }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": { "onhover": { "enable": true, "mode": "repulse" }, "onclick": { "enable": true, "mode": "push" } },
+        "modes": { "grab": { "distance": 400, "line_linked": { "opacity": 1 } } }
+      },
+      "retina_detect": true
+    });
   </script>
-
 </body>
 </html>
