@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Code Unlock</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding-top: 100px;
+    }
+    input {
+      font-size: 20px;
+      padding: 10px;
+      text-transform: uppercase;
+    }
+    button {
+      font-size: 20px;
+      padding: 10px 20px;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+    #result {
+      margin-top: 20px;
+      font-size: 24px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Enter the Code</h1>
+
+  <input type="text" id="userInput" placeholder="Type code here">
+  <button onclick="checkCode()">Unlock</button>
+
+  <p id="result"></p>
+
+  <script>
+    const validCodes = [
+      "AKTJHRSMBE",
+      "AHBRTKJSME",
+      "ASMHKBJTRE",
+      "ATRSHMBKJE",
+      "AJKBMHRTSE",
+      "ABHTJSKMRE",
+      "ARSKTJMHBE",
+      "AMJBRTHSKE",
+      "AHKMSTJRE",
+      "ATBHRKSMJE",
+      "ASRJKHMBTE",
+      "ABMTHSJRKE",
+      "AKHBMJTRSE",
+      "AJSRTBKHME",
+      "AMTKSRHJBE",
+      "RBHJTMKSE",
+      "ASJMHKRBTE",
+      "AHTSBMJKRE",
+      "AKBRMHSTJE",
+      "ATHJKSRMBE",
+      "ABRMTJHSKE"
+    ];
+
+    function checkCode() {
+      const input = document.getElementById("userInput").value.toUpperCase().trim();
+      const result = document.getElementById("result");
+
+      if (validCodes.includes(input)) {
+        result.textContent = "🎉 Congrats! Code Accepted!";
+        result.style.color = "#00ff99";
+      } else {
+        result.textContent = "❌ Try again!";
+        result.style.color = "#ff5555";
+      }
+    }
+  </script>
+
+</body>
+</html>
