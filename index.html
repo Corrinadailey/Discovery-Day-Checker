@@ -23,39 +23,49 @@
       z-index: 0;
     }
 
+    /* 🔼 moved UP + bigger */
     .login-box {
       position: absolute;
-      top: 50%;
+      top: 42%;
       left: 50%;
       transform: translate(-50%, -50%);
       z-index: 2;
-      background: rgba(0, 0, 0, 0.7);
-      padding: 30px;
-      border-radius: 10px;
+      background: rgba(0, 0, 0, 0.75);
+      padding: 45px;
+      border-radius: 14px;
       text-align: center;
       color: white;
+      width: 320px;
+    }
+
+    .login-box h2 {
+      font-size: 26px;
+      margin-bottom: 20px;
     }
 
     input {
-      padding: 10px;
-      width: 200px;
-      margin-bottom: 10px;
-      border-radius: 5px;
+      padding: 14px;
+      width: 240px;
+      font-size: 18px;
+      margin-bottom: 15px;
+      border-radius: 8px;
       border: none;
       text-align: center;
     }
 
     button {
-      padding: 10px 20px;
+      padding: 12px 28px;
+      font-size: 16px;
       border: none;
-      border-radius: 5px;
+      border-radius: 8px;
       cursor: pointer;
       font-weight: bold;
     }
 
     #message {
-      margin-top: 15px;
+      margin-top: 18px;
       font-weight: bold;
+      font-size: 16px;
     }
   </style>
 </head>
@@ -77,30 +87,49 @@
   <script>
     particlesJS("particles-js", {
       particles: {
-        number: { value: 100, density: { enable: true, value_area: 800 } },
+        number: { value: 90, density: { enable: true, value_area: 900 } },
+
         color: { value: "#E87722" },
-        shape: { type: "star" },
-        opacity: { value: 0.5 },
-        size: { value: 10 },
+
+        shape: {
+          type: "star"
+        },
+
+        /* ⭐ BIGGER STARS */
+        size: {
+          value: 16,
+          random: true
+        },
+
+        opacity: {
+          value: 0.6
+        },
+
+        /* 🔗 THICKER LINES + NEW COLOR */
         line_linked: {
           enable: true,
-          distance: 150,
-          color: "#88dbdf",
-          opacity: 0.4,
-          width: 2
+          distance: 200,
+          color: "#88bdbf",
+          opacity: 0.6,
+          width: 3
         },
-        move: { enable: true, speed: 6 }
+
+        move: {
+          enable: true,
+          speed: 5
+        }
       },
+
       interactivity: {
         events: {
           onhover: { enable: true, mode: "repulse" },
           onclick: { enable: true, mode: "push" }
         }
       },
+
       retina_detect: true
     });
 
-    // ✅ VALID PASSWORDS
     const validPasswords = [
       "AKRMTE","AKRTME","AKMRTE","AKMTRE","AKTRME","AKTMRE",
       "ARKMTE","ARKTME","ARMKTE","ARMTKE","ARTKME","ARTMKE",
@@ -120,7 +149,6 @@
         message.textContent = "❌ Wrong Password";
       }
 
-      // clear message after 5 seconds
       setTimeout(() => {
         message.textContent = "";
       }, 5000);
